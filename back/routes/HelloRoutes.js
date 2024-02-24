@@ -1,8 +1,9 @@
 import express from 'express'
-import { sayHello } from '../controllers/HelloController.js'
+import { sayHello, sayBonjour } from '../controllers/HelloController.js'
 
 const router = express.Router()
 
 router.get('/', sayHello)
+router.get('/french', sayBonjour)
 
 export default router

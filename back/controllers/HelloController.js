@@ -1,5 +1,9 @@
 const sayHello = (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello Everyone !')
 }
 
-export { sayHello }
+const sayBonjour = (req, res) => {
+    res.send('Bonjour à tous !')
+}
+
+export { sayHello, sayBonjour }
