@@ -22,8 +22,17 @@
                     <p style="margin: inherit">id: ${championInfo.id}</p>
                 </div>
                 <a href="index.html">Back</a>
+                <a href="rename.html?id=${championInfo.id}">Change data</a>
+                <a onclick="deleteChampion()" style="background: none; border: none; cursor: pointer;">Delete</a>
             `
         })
+
+        const deleteChampion = async () => {
+            let response = await fetch(`http://localhost:3000/champions/${id}`, {
+                method: "DELETE"
+            })
+            window.location.href = "index.html"
+        }
     </script>
 </body>
 </html>
