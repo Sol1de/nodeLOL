@@ -3,7 +3,19 @@ import { PrismaClient } from "@prisma/client"
 const prisma =  new PrismaClient()
 
 const getChampions = (req, res) => {
-    //
+    let idChampion = Number(req.params.id)
+
+    prisma.champions.findUnique({
+        where: {
+            id: idChampion,
+        }
+    })
+    .then((champion) => {
+        res.json(champion)
+    })
+    .catch((error) => {
+        res.json(error)
+    })
 }
 
 const getAllChampions = (req, res) => {
