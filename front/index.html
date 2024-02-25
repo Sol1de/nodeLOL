@@ -15,6 +15,11 @@
         
         <button onclick="sendChampion()">Send</button>
     </form>
+    <button onclick="sendRealChampions()">Intégrer a la DB les champions du fichier JSON</button>
+    <button onclick="deleteRealChampions()">Supprimer tous les champions ajouté depuis le fichier JSON</button>
+    <h1>Listes des champions du fichier Json</h1>
+    <div id="realChampions"></div>
+
     <h1>Listes des champions</h1>
     <div id="champions"></div>
 
@@ -51,6 +56,25 @@
 
             window.location.href = 'index.html'
         }
+
+        const sendRealChampions = () => {
+            let response = fetch("http://localhost:3000/real", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(realChampions),
+            })
+        window.location.href = 'index.html'
+        }
+
+        const deleteRealChampions = () => {
+            let response = fetch("http://localhost:3000/real", {
+                method: 'DELETE'
+            })
+            window.location.href = 'index.html'
+        }
+
     </script>
 </body>
 </html>
