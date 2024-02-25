@@ -27,7 +27,7 @@
             data.forEach(champions => {
                 div.innerHTML += `
                 <div style="display: flex; flex-direction: column; align-items: flex-start; padding-block: 20px;">
-                    <h2 style="margin: inherit;">${champions.name}</h2>
+                    <a href="champion.html?id=${champions.id}"><h2 style="margin: inherit;">${champions.name}</h2></a>
                     <p style="margin: inherit;">${champions.type}</p>
                 </div>
                 `
