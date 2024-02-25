@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="">
+        <label for="name">Name</label>
+        <input type="text" name="name">
+
+        <label for="type">Type</label>
+        <input type="text" name="type">
+        
+        <button onclick="sendChampion()">Send</button>
+    </form>
     <h1>Listes des champions</h1>
     <div id="champions"></div>
 
@@ -19,6 +28,24 @@
                 div.innerHTML += `<h3>${champions}</h3>`
             });
         })
+
+        const sendChampion = async () => {
+            let championName = document.querySelector("input[name='name']").value
+            let championType = document.querySelector("input[name='type']").value
+
+            let response = await fetch("http://localhost:3000/champions", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    name: championName,
+                    type: championType
+                }),
+            })
+
+            window.location.href = 'index.html'
+        }
     </script>
 </body>
 </html>
